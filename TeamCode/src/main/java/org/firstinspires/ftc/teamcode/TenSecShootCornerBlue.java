@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -12,7 +13,7 @@ import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition
 import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
 import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
 import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
-
+@Disabled
 @Autonomous(name = "10 sec shoot corner blue", group = "corner")
 
 public class TenSecShootCornerBlue extends LinearOpMode {

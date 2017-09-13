@@ -1,16 +1,40 @@
 package org.firstinspires.ftc.robotinoneweek;
 
+import android.graphics.Color;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
+
+import org.firstinspires.ftc.teamcode.*;
 
 @Autonomous(name = "AutoVoids", group = "full")
 @Disabled
-public class AutonomousVoids extends LinearOpMode {
-    public void INITALL(){
-        DcMotor hoi = hardwareMap.dcMotor.get("hoi");
+public class AutonomousVoids extends LinearOpMode implements RobotVariables{
+    public void Jewels(String color){
+        Servo jewelservo = hardwareMap.servo.get("jewelservo");
+        jewelservo.setPosition(JewelServoPosMID);
+        ColorSensor colorsensorjewels = hardwareMap.colorSensor.get("colorsensorjewels");
+        if (color=="blue"){
+            if (colorsensorjewels.blue() > colorsensorjewels.red()){
+                jewelservo.setPosition(JewelServoPosMIN);
+            }
+            if (colorsensorjewels.blue() < colorsensorjewels.red()){
+                jewelservo.setPosition(JewelServoPosMAX);
+            }
+        }
+        if (color.equals("red")){
+           if (colorsensorjewels.blue() > colorsensorjewels.red()){
+               jewelservo.setPosition(JewelServoPosMIN);
+           }
+            if (colorsensorjewels.blue() < colorsensorjewels.red()){
+                jewelservo.setPosition(JewelServoPosMAX);
+            }
+        }
     }
     public void Forward(double omw, double pwr) {
         boolean loop = true;

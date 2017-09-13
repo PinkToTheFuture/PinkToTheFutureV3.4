@@ -24,10 +24,6 @@ import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPo
 @Autonomous(name = "AutoVoids", group = "full")
 @Disabled
 public class AutonomousVoids extends LinearOpMode {
-    public void INITALL(){
-        DcMotor hoi = hardwareMap.dcMotor.get("hoi");
-        hoi.setPower(0);
-    }
     public void Forward(double omw, double pwr) {
         boolean loop = true;
         DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");

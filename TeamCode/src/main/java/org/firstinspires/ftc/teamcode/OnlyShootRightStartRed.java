@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -11,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition
 import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
 import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
 import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
-
+@Disabled
 @Autonomous(name = "Only shoot right start red", group = "shoot")
 
 public class  OnlyShootRightStartRed extends LinearOpMode {

@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -16,7 +17,7 @@ import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition
 import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
 import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
 import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
-
+@Disabled
 @Autonomous(name = "AUTO BLUE", group = "full")
 
 public class PTTF_AUTO_BLUE extends LinearOpMode {
