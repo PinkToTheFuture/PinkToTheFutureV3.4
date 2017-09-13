@@ -40,7 +40,8 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
         LBdrive.setDirection(DcMotorSimple.Direction.REVERSE);
         Servo GlyphgrabL = hardwareMap.servo.get("glyphgrabl");
         Servo GlyphgrabR = hardwareMap.servo.get("glyphgrabr");
-        Servo RelicSlideOpener = hardwareMap.servo.get("relicslideopener");
+        Servo RelicSlideOpenerR = hardwareMap.servo.get("relicslideopenerr");
+        Servo RelicSlideOpenerL = hardwareMap.servo.get("relicslideopenerl");
 
 
 
@@ -50,6 +51,7 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
             waitOneFullHardwareCycle();
             if (gamepad1.dpad_up)     fastency = 1;
             if (gamepad1.dpad_down)   fastency = 0.4;
+
             if (gamepad2.a) {
                 GlyphgrabLPos += 0.01;
                 GlyphgrabRPos -= 0.01;
@@ -59,8 +61,14 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
                 GlyphgrabRPos += 0.01;
             }
 
-            if (gamepad2.x) RelicSlideOpener.setPosition(RelicSlideServoMAX);
-            if (gamepad2.y) RelicSlideOpener.setPosition(RelicSlideServoMIN);
+            if (gamepad2.x){
+                RelicSlideOpenerR.setPosition(RelicSlideRServoMAX);
+                RelicSlideOpenerL.setPosition(RelicSlideLServoMIN);
+            }
+            if (gamepad2.y){
+                RelicSlideOpenerR.setPosition(RelicSlideRServoMIN);
+                RelicSlideOpenerL.setPosition(RelicSlideLServoMAX);
+            }
 
             Lpower = gamepad1.left_stick_y;
             Rpower = gamepad1.right_stick_y;
