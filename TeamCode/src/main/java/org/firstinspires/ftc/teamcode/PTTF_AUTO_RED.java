@@ -23,7 +23,7 @@ import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPo
 @Autonomous(name = "AUTO RED", group = "full")
 
 public class PTTF_AUTO_RED extends LinearOpMode {
-    private void Forward(double omw, double pwr) throws InterruptedException{
+    public void Forward(double omw, double pwr) {
         boolean loop = true;
         DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");
         DcMotor RBdrive = hardwareMap.dcMotor.get("RBdrive");
