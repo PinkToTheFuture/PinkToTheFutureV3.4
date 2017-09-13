@@ -36,6 +36,7 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
         LBdrive.setDirection(DcMotorSimple.Direction.REVERSE);
         Servo GlyphgrabL = hardwareMap.servo.get("glyphgrabl");
         Servo GlyphgrabR = hardwareMap.servo.get("glyphgrabr");
+        Servo RelicSlideOpener = hardwareMap.servo.get("relicslideopener");
 
 
 
@@ -53,6 +54,9 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
                 GlyphgrabLPos -= 0.01;
                 GlyphgrabRPos += 0.01;
             }
+
+            if (gamepad1.x) RelicSlideOpener.setPosition(0);
+            if (gamepad1.y) RelicSlideOpener.setPosition(0.7);
 
             Lpower = gamepad1.left_stick_y;
             Rpower = gamepad1.right_stick_y;
