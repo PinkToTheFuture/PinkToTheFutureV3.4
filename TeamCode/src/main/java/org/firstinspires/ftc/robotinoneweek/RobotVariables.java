@@ -5,10 +5,10 @@ package org.firstinspires.ftc.robotinoneweek;
  */
 
 public interface RobotVariables {
-    double RelicSlideLServoMAX = 1;
-    double RelicSlideLServoMIN = 0.07;
+    double RelicSlideLServoMAX = 0.5;
+    double RelicSlideLServoMIN = 0;
     double RelicSlideRServoMAX = 1;
-    double RelicSlideRServoMIN = 0;
+    double RelicSlideRServoMIN = 0.5;
     double JewelServoPosMAX = 1;
     double JewelServoPosMID = 0.5;
     double JewelServoPosMIN = 0;

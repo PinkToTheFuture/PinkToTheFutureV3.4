@@ -14,12 +14,23 @@ import org.firstinspires.ftc.teamcode.*;
 
 @Autonomous(name = "AutoVoids", group = "full")
 @Disabled
-public class AutonomousVoids extends LinearOpMode implements RobotVariables{
+class AutonomousVoids extends LinearOpMode implements RobotVariables{
+    DcMotor Arm = hardwareMap.dcMotor.get("armmotor");
+    DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");
+    DcMotor LBdrive = hardwareMap.dcMotor.get("LBdrive");
+    DcMotor RFdrive = hardwareMap.dcMotor.get("RFdrive");
+    DcMotor RBdrive = hardwareMap.dcMotor.get("RBdrive");
+    Servo GlyphgrabL = hardwareMap.servo.get("glyphgrabl");
+    Servo GlyphgrabR = hardwareMap.servo.get("glyphgrabr");
+    Servo RelicSlideOpenerR = hardwareMap.servo.get("relicslideopenerr");
+    Servo RelicSlideOpenerL = hardwareMap.servo.get("relicslideopenerl");
+
+
     public void Jewels(String color){
         Servo jewelservo = hardwareMap.servo.get("jewelservo");
         jewelservo.setPosition(JewelServoPosMID);
         ColorSensor colorsensorjewels = hardwareMap.colorSensor.get("colorsensorjewels");
-        if (color=="blue"){
+        if (color.equals("blue")){
             if (colorsensorjewels.blue() > colorsensorjewels.red()){
                 jewelservo.setPosition(JewelServoPosMIN);
             }
@@ -321,6 +332,5 @@ public class AutonomousVoids extends LinearOpMode implements RobotVariables{
 
     @Override
     public void runOpMode() throws InterruptedException {
-
     }
 }

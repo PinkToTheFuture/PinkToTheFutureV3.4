@@ -17,7 +17,7 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
 
     @Override
     public void runOpMode() throws InterruptedException  {
-        AutonomousVoids autonomousvoids = new AutonomousVoids();
+        RobotComponents robotcomponents = new RobotComponents();
         double ArmPos = 0;
         double Rpower;
         double Lpower;
@@ -25,24 +25,19 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
         double GlyphgrabRPos = 1;
 
         double fastency = 1;
+        
 
 
-        DcMotor Arm = hardwareMap.dcMotor.get("armmotor");
-        Arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robotcomponents.Arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         idle();
-        Arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Arm.setPower(1);
-        DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");
-        DcMotor LBdrive = hardwareMap.dcMotor.get("LBdrive");
-        DcMotor RFdrive = hardwareMap.dcMotor.get("RFdrive");
-        DcMotor RBdrive = hardwareMap.dcMotor.get("RBdrive");
-        LFdrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        LBdrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        Servo GlyphgrabL = hardwareMap.servo.get("glyphgrabl");
-        Servo GlyphgrabR = hardwareMap.servo.get("glyphgrabr");
-        Servo RelicSlideOpenerR = hardwareMap.servo.get("relicslideopenerr");
-        Servo RelicSlideOpenerL = hardwareMap.servo.get("relicslideopenerl");
-
+        robotcomponents.Arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robotcomponents.Arm.setPower(1);
+        
+        robotcomponents.LFdrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        robotcomponents.LBdrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        robotcomponents.RelicSlideOpenerR.setPosition(RelicSlideRServoMIN);
+        robotcomponents.RelicSlideOpenerL.setPosition(RelicSlideLServoMAX);
+        
 
 
         waitOneFullHardwareCycle();
@@ -50,7 +45,8 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
         while (opModeIsActive()) {
             waitOneFullHardwareCycle();
             if (gamepad1.dpad_up)     fastency = 1;
-            if (gamepad1.dpad_down)   fastency = 0.4;
+            if (gamepad1.dpad_down)   fastency = 0.2;
+            if (gamepad1.dpad_right)  fastency = 0.4;
 
             if (gamepad2.a) {
                 GlyphgrabLPos += 0.01;
@@ -62,31 +58,31 @@ public class RobotIn1week extends LinearOpMode implements RobotVariables{
             }
 
             if (gamepad2.x){
-                RelicSlideOpenerR.setPosition(RelicSlideRServoMAX);
-                RelicSlideOpenerL.setPosition(RelicSlideLServoMIN);
+                robotcomponents.RelicSlideOpenerR.setPosition(RelicSlideRServoMAX);
+                robotcomponents.RelicSlideOpenerL.setPosition(RelicSlideLServoMIN);
             }
             if (gamepad2.y){
-                RelicSlideOpenerR.setPosition(RelicSlideRServoMIN);
-                RelicSlideOpenerL.setPosition(RelicSlideLServoMAX);
+                robotcomponents.RelicSlideOpenerR.setPosition(RelicSlideRServoMIN);
+                robotcomponents.RelicSlideOpenerL.setPosition(RelicSlideLServoMAX);
             }
 
             Lpower = gamepad1.left_stick_y;
             Rpower = gamepad1.right_stick_y;
 
-            LFdrive.setPower(Lpower*fastency);
-            LBdrive.setPower(Lpower*fastency);
-            RFdrive.setPower(Rpower*fastency);
-            RBdrive.setPower(Rpower*fastency);
+            robotcomponents.LFdrive.setPower(Lpower*fastency);
+            robotcomponents.LBdrive.setPower(Lpower*fastency);
+            robotcomponents.RFdrive.setPower(Rpower*fastency);
+            robotcomponents.RBdrive.setPower(Rpower*fastency);
 
             if (gamepad2.left_stick_y != 0){
                 ArmPos += gamepad2.left_stick_y * 8;
-                Arm.setTargetPosition((int)ArmPos);
+                robotcomponents.Arm.setTargetPosition((int)ArmPos);
             }
 
             GlyphgrabLPos = Range.clip(GlyphgrabLPos,0.4,1);
             GlyphgrabRPos = Range.clip(GlyphgrabRPos,0,0.6);
-            GlyphgrabL.setPosition(GlyphgrabLPos);
-            GlyphgrabR.setPosition(GlyphgrabRPos);
+            robotcomponents.GlyphgrabL.setPosition(GlyphgrabLPos);
+            robotcomponents.GlyphgrabR.setPosition(GlyphgrabRPos);
 
         }
     }
