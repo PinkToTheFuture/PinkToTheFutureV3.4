@@ -9,8 +9,10 @@ public interface RobotVariables {
     double RelicSlideLServoMIN = 0;
     double RelicSlideRServoMAX = 1;
     double RelicSlideRServoMIN = 0.5;
-    double JewelServoPosMAX = 1;
-    double JewelServoPosMID = 0.5;
-    double JewelServoPosMIN = 0;
+    double JewelServoTurnPosL = 0.2;
+    double JewelServoTurnPosMID = 0.5;
+    double JewelServoTurnPosR = 0.8;
+    double JewelServoExtendPosOUT = 0.5;
+    double JewelServoExtendPosIN = 0.5;
 
 }

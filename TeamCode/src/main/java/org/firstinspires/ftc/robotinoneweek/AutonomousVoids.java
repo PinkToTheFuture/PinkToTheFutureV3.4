@@ -27,25 +27,35 @@ class AutonomousVoids extends LinearOpMode implements RobotVariables{
 
 
     public void Jewels(String color){
-        Servo jewelservo = hardwareMap.servo.get("jewelservo");
-        jewelservo.setPosition(JewelServoPosMID);
+        Servo JewelservoExtend = hardwareMap.servo.get("Jewelservoextend");
+        Servo JewelservoTurn = hardwareMap.servo.get("Jewelservoturn");
+        JewelservoTurn.setPosition(JewelServoTurnPosMID);
+        JewelservoExtend.setPosition(JewelServoExtendPosOUT);
         ColorSensor colorsensorjewels = hardwareMap.colorSensor.get("colorsensorjewels");
+        
+        
         if (color.equals("blue")){
             if (colorsensorjewels.blue() > colorsensorjewels.red()){
-                jewelservo.setPosition(JewelServoPosMIN);
+                JewelservoTurn.setPosition(JewelServoTurnPosL);
             }
             if (colorsensorjewels.blue() < colorsensorjewels.red()){
-                jewelservo.setPosition(JewelServoPosMAX);
+                JewelservoTurn.setPosition(JewelServoTurnPosR);
             }
         }
         if (color.equals("red")){
            if (colorsensorjewels.blue() > colorsensorjewels.red()){
-               jewelservo.setPosition(JewelServoPosMIN);
+               JewelservoTurn.setPosition(JewelServoTurnPosR);
            }
             if (colorsensorjewels.blue() < colorsensorjewels.red()){
-                jewelservo.setPosition(JewelServoPosMAX);
+                JewelservoTurn.setPosition(JewelServoTurnPosL);
             }
         }
+
+
+
+
+        JewelservoTurn.setPosition(JewelServoTurnPosMID);
+        JewelservoExtend.setPosition(JewelServoExtendPosIN);
     }
     public void Forward(double omw, double pwr) {
         boolean loop = true;
