@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name="RobotInOneWeekAUTOBLUE", group="FTC")
 public class RobotInOneWeekAUTOBLUE extends LinearOpMode implements RobotVariables{
-    AutonomousVoids autonomousvoids = new AutonomousVoids();
+
     @Override
     public void runOpMode() throws InterruptedException  {
-
+        AutonomousVoids autonomousvoids = new AutonomousVoids();
         waitOneFullHardwareCycle();
         waitForStart();
 
