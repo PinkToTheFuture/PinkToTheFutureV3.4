@@ -1,16 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
 
-import com.qualcomm.ftccommon.Restarter;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.robot.Robot;
 
 
 @TeleOp(name="BasicTankDrive2M ", group="FTC")
+@Disabled
 public class BasicTankDrive2M extends LinearOpMode {
 
     @Override

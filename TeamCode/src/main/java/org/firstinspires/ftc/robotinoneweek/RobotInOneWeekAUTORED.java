@@ -1,8 +1,6 @@
 package org.firstinspires.ftc.robotinoneweek;
 
 
-import com.qualcomm.ftccommon.Restarter;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
