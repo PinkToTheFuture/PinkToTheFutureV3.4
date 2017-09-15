@@ -33,7 +33,8 @@ class AutonomousVoids extends LinearOpMode implements RobotVariables{
         JewelservoExtend.setPosition(JewelServoExtendPosOUT);
         ColorSensor colorsensorjewels = hardwareMap.colorSensor.get("colorsensorjewels");
         
-        
+
+
         if (color.equals("blue")){
             if (colorsensorjewels.blue() > colorsensorjewels.red()){
                 JewelservoTurn.setPosition(JewelServoTurnPosL);

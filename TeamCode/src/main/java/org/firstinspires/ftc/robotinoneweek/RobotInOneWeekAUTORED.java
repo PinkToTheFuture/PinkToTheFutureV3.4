@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 
-@Autonomous(name="RobotInOneWeekAUTO", group="FTC")
-public class RobotInOneWeekAUTO extends LinearOpMode implements RobotVariables{
+@Autonomous(name="RobotInOneWeekAUTORED", group="FTC")
+public class RobotInOneWeekAUTORED extends LinearOpMode implements RobotVariables{
     AutonomousVoids autonomousvoids = new AutonomousVoids();
     @Override
     public void runOpMode() throws InterruptedException  {
@@ -16,7 +16,7 @@ public class RobotInOneWeekAUTO extends LinearOpMode implements RobotVariables{
         waitOneFullHardwareCycle();
         waitForStart();
 
-        autonomousvoids.Forward(1,1);
+        //autonomousvoids.Forward(1,1);
         autonomousvoids.Jewels("red");
 
 
