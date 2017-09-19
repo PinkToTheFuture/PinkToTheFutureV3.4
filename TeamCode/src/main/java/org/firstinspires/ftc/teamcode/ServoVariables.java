@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 
-public interface RobotVariables {
+public interface ServoVariables {
 
     double ArmservoForwardPosition = 1;
     double ArmservoStopPosition = 0.5;

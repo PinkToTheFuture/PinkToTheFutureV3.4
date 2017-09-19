@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.util.Range
 
 @Suppress("UNREACHABLE_CODE")
 @TeleOp(name = "KotlinOmni", group = "PinkToTheFuture")
+@Disabled
 class BasicTankKotlin : LinearOpMode() {
     override fun runOpMode() {
         throw InterruptedException()

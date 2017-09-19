@@ -12,15 +12,10 @@ import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
-
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
 @Disabled
 @Autonomous(name = "AUTO BLUE", group = "full")
 
-public class PTTF_AUTO_BLUE extends LinearOpMode {
+public class PTTF_AUTO_BLUE extends LinearOpMode implements ServoVariables{
     private void Forward(double omw, double pwr) throws InterruptedException{
         boolean loop = true;
         DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");

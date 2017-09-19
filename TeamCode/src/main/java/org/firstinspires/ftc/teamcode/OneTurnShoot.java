@@ -6,14 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
 @Disabled
 @Autonomous(name = "reboot shooter", group = "corner")
 
-public class OneTurnShoot extends LinearOpMode {
+public class OneTurnShoot extends LinearOpMode implements ServoVariables{
 
 
 

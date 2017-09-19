@@ -16,14 +16,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
 
-@Autonomous(name = "AutoVoids", group = "full")
-@Disabled
-public class AutonomousVoids extends LinearOpMode {
+public class AutonomousVoids extends LinearOpMode implements ServoVariables{
     public void Forward(double omw, double pwr) {
         boolean loop = true;
         DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");

@@ -4,7 +4,7 @@ package org.firstinspires.ftc.robotinoneweek;
  * Created by robotica on 13-9-2017.
  */
 
-public interface RobotVariables {
+public interface ServoVariables {
     double RelicSlideLServoMAX = 0.5;
     double RelicSlideLServoMIN = 0;
     double RelicSlideRServoMAX = 1;

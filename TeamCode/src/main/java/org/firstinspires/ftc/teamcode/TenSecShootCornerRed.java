@@ -9,14 +9,10 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
 @Disabled
 @Autonomous(name = "10 sec shoot corner red", group = "corner")
 
-public class TenSecShootCornerRed extends LinearOpMode {
+public class TenSecShootCornerRed extends LinearOpMode implements ServoVariables{
     public void Forward(double omw, double pwr) throws InterruptedException {
         boolean loop = true;
         DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");

@@ -14,49 +14,36 @@ import org.firstinspires.ftc.teamcode.*;
 
 @Autonomous(name = "AutoVoids", group = "full")
 @Disabled
-class AutonomousVoids extends LinearOpMode implements RobotVariables{
-    DcMotor Arm = hardwareMap.dcMotor.get("armmotor");
-    DcMotor LFdrive = hardwareMap.dcMotor.get("LFdrive");
-    DcMotor LBdrive = hardwareMap.dcMotor.get("LBdrive");
-    DcMotor RFdrive = hardwareMap.dcMotor.get("RFdrive");
-    DcMotor RBdrive = hardwareMap.dcMotor.get("RBdrive");
-    Servo GlyphgrabL = hardwareMap.servo.get("glyphgrabl");
-    Servo GlyphgrabR = hardwareMap.servo.get("glyphgrabr");
-    Servo RelicSlideOpenerR = hardwareMap.servo.get("relicslideopenerr");
-    Servo RelicSlideOpenerL = hardwareMap.servo.get("relicslideopenerl");
-
+class AutonomousVoids extends LinearOpMode implements ServoVariables{
+    RobotComponents robotcomponents = new RobotComponents();
 
     public void Jewels(String color){
-        Servo JewelservoExtend = hardwareMap.servo.get("Jewelservoextend");
-        Servo JewelservoTurn = hardwareMap.servo.get("Jewelservoturn");
-        JewelservoTurn.setPosition(JewelServoTurnPosMID);
-        JewelservoExtend.setPosition(JewelServoExtendPosOUT);
-        ColorSensor colorsensorjewels = hardwareMap.colorSensor.get("colorsensorjewels");
-        
 
+        robotcomponents.JewelservoTurn.setPosition(JewelServoTurnPosMID);
+        robotcomponents.JewelservoExtend.setPosition(JewelServoExtendPosOUT);
 
         if (color.equals("blue")){
-            if (colorsensorjewels.blue() > colorsensorjewels.red()){
-                JewelservoTurn.setPosition(JewelServoTurnPosL);
+            if (robotcomponents.colorsensorjewels.blue() > robotcomponents.colorsensorjewels.red()){
+                robotcomponents.JewelservoTurn.setPosition(JewelServoTurnPosL);
             }
-            if (colorsensorjewels.blue() < colorsensorjewels.red()){
-                JewelservoTurn.setPosition(JewelServoTurnPosR);
+            if (robotcomponents.colorsensorjewels.blue() < robotcomponents.colorsensorjewels.red()){
+                robotcomponents.JewelservoTurn.setPosition(JewelServoTurnPosR);
             }
         }
         if (color.equals("red")){
-           if (colorsensorjewels.blue() > colorsensorjewels.red()){
-               JewelservoTurn.setPosition(JewelServoTurnPosR);
+           if (robotcomponents.colorsensorjewels.blue() > robotcomponents.colorsensorjewels.red()){
+               robotcomponents.JewelservoTurn.setPosition(JewelServoTurnPosR);
            }
-            if (colorsensorjewels.blue() < colorsensorjewels.red()){
-                JewelservoTurn.setPosition(JewelServoTurnPosL);
+            if (robotcomponents.colorsensorjewels.blue() < robotcomponents.colorsensorjewels.red()){
+                robotcomponents.JewelservoTurn.setPosition(JewelServoTurnPosL);
             }
         }
 
 
 
 
-        JewelservoTurn.setPosition(JewelServoTurnPosMID);
-        JewelservoExtend.setPosition(JewelServoExtendPosIN);
+        robotcomponents.JewelservoTurn.setPosition(JewelServoTurnPosMID);
+        robotcomponents.JewelservoExtend.setPosition(JewelServoExtendPosIN);
     }
     public void Forward(double omw, double pwr) {
         boolean loop = true;

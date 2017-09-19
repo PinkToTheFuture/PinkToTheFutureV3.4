@@ -13,19 +13,9 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.configuration.LegacyModuleControllerConfiguration;
 import com.qualcomm.robotcore.util.Range;
 
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoStopPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLEngagePosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmLStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmREngagePosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.releaseArmRStartPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoBackPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.ArmservoForwardPosition;
-import static org.firstinspires.ftc.teamcode.RobotVariables.shooterservoXStartPosition;
-
-
 @TeleOp(name="Full Robot", group="PinktotheFuture")
 
-public class FullRobotPTTF extends LinearOpMode {
+public class FullRobotPTTF extends LinearOpMode implements ServoVariables{
 
     @Override
     public void runOpMode() throws InterruptedException {
