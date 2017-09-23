@@ -55,7 +55,6 @@ import java.util.Locale;
  * @see <a href="http://www.adafruit.com/products/2472">Adafruit IMU</a>
  */
 @Autonomous(name = "BNO055 IMU GYRO REV", group = "Sensor")
-@Disabled
 public class REVGYRO extends LinearOpMode
     {
     //----------------------------------------------------------------------------------------------
@@ -82,7 +81,7 @@ public class REVGYRO extends LinearOpMode
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
-        parameters.loggingEnabled      = true;
+        parameters.loggingEnabled      = false;
         parameters.loggingTag          = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
