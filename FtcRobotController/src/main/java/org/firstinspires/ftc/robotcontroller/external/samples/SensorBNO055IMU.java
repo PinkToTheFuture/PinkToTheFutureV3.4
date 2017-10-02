@@ -67,8 +67,8 @@ public class SensorBNO055IMU extends LinearOpMode
     BNO055IMU imu;
 
     // State used for updating telemetry
-    Orientation angles;
-    Acceleration gravity;
+    Orientation Angles;
+    Acceleration Gravity;
 
     //----------------------------------------------------------------------------------------------
     // Main logic
@@ -121,8 +121,8 @@ public class SensorBNO055IMU extends LinearOpMode
                 // Acquiring the angles is relatively expensive; we don't want
                 // to do that in each of the three items that need that info, as that's
                 // three times the necessary expense.
-                angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-                gravity  = imu.getGravity();
+                Angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+                Gravity  = imu.getGravity();
                 }
             });
 
@@ -141,32 +141,32 @@ public class SensorBNO055IMU extends LinearOpMode
         telemetry.addLine()
             .addData("heading", new Func<String>() {
                 @Override public String value() {
-                    return formatAngle(angles.angleUnit, angles.firstAngle);
+                    return formatAngle(Angles.angleUnit, Angles.firstAngle);
                     }
                 })
             .addData("roll", new Func<String>() {
                 @Override public String value() {
-                    return formatAngle(angles.angleUnit, angles.secondAngle);
+                    return formatAngle(Angles.angleUnit, Angles.secondAngle);
                     }
                 })
             .addData("pitch", new Func<String>() {
                 @Override public String value() {
-                    return formatAngle(angles.angleUnit, angles.thirdAngle);
+                    return formatAngle(Angles.angleUnit, Angles.thirdAngle);
                     }
                 });
 
         telemetry.addLine()
             .addData("grvty", new Func<String>() {
                 @Override public String value() {
-                    return gravity.toString();
+                    return Gravity.toString();
                     }
                 })
             .addData("mag", new Func<String>() {
                 @Override public String value() {
                     return String.format(Locale.getDefault(), "%.3f",
-                            Math.sqrt(gravity.xAccel*gravity.xAccel
-                                    + gravity.yAccel*gravity.yAccel
-                                    + gravity.zAccel*gravity.zAccel));
+                            Math.sqrt(Gravity.xAccel*Gravity.xAccel
+                                    + Gravity.yAccel*Gravity.yAccel
+                                    + Gravity.zAccel*Gravity.zAccel));
                     }
                 });
     }
