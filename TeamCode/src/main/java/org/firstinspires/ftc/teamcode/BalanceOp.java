@@ -39,7 +39,7 @@ public class BalanceOp extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            pitchAndRollBalance(.1, .02);
+            pitchAndRollBalance(.007, .005);
         }
     }
 
@@ -66,8 +66,14 @@ public class BalanceOp extends LinearOpMode {
         double target;
 
         while (opModeIsActive()) {
-            error = imu.getAngles()[1];
-            roll = rollBalance(.07, .005);
+
+            if ((imu.getAngles()[1]) >10 || (imu.getAngles()[1])<(-10)){
+                error = imu.getAngles()[1];
+            }
+            else{
+                error=0;
+            }
+            roll = rollBalance(.007, .005);
 
             LFpower = error * Kp;
             RFpower = error * Kp;
@@ -84,8 +90,8 @@ public class BalanceOp extends LinearOpMode {
             LBdrive.setPower(LBpower);
             RBdrive.setPower(-RBpower);
 
-            telemetry.addLine("Pitch: " + Math.round(imu.getAngles()[1]));
-            telemetry.addLine("Roll: " + Math.round(imu.getAngles()[2]));
+            telemetry.addLine("Pitch: " + (imu.getAngles()[1]));
+            telemetry.addLine("Roll: " + (imu.getAngles()[2]));
             telemetry.update();
         }
 
