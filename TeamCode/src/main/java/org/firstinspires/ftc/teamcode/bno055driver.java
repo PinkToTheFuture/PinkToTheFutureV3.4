@@ -43,6 +43,8 @@ public class bno055driver {
         double yaw = Math.atan2( 2*(w*z + x*y), 1 - 2*(y*y + z*z) ) * 180.0 / Math.PI;
 
         return new double[]{yaw, pitch, roll};
+
+
     }
 
     public String getName() {return name;}

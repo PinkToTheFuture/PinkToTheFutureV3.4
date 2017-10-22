@@ -39,13 +39,13 @@ public class BalanceOp extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            pitchAndRollBalance(.007, .005);
+            pitchAndRollBalance(.001, .005);
         }
     }
 
     //change Kp and Tp depending on your robot
-    private double[] rollBalance(double Tp, double Kp) {
-        double error = imu.getAngles()[2];
+    public double[] rollBalance(double Tp, double Kp) {
+        double error = imu.getAngles()[2]; //roll
 
         double leftPow = error * Kp;
         double rightPow = error * Kp;
@@ -67,13 +67,9 @@ public class BalanceOp extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            if ((imu.getAngles()[1]) >10 || (imu.getAngles()[1])<(-10)){
-                error = imu.getAngles()[1];
-            }
-            else{
-                error=0;
-            }
-            roll = rollBalance(.007, .005);
+            error = imu.getAngles()[1]; //pitch
+
+            roll = rollBalance(.001, .005);
 
             LFpower = error * Kp;
             RFpower = error * Kp;
@@ -85,13 +81,13 @@ public class BalanceOp extends LinearOpMode {
             LBpower = Range.clip(LBpower, -Tp, Tp) + roll[0];
             RBpower = Range.clip(RBpower, -Tp, Tp) - roll[1];
 
-            LFdrive.setPower(-LFpower);
+            LFdrive.setPower(LFpower);
             RFdrive.setPower(RFpower);
             LBdrive.setPower(LBpower);
-            RBdrive.setPower(-RBpower);
+            RBdrive.setPower(RBpower);
 
-            telemetry.addLine("Pitch: " + (imu.getAngles()[1]));
-            telemetry.addLine("Roll: " + (imu.getAngles()[2]));
+            telemetry.addLine("Pitch: " + (imu.getAngles()[1])); //pitch
+            telemetry.addLine("Roll: " + (imu.getAngles()[2]));  //roll
             telemetry.update();
         }
 
