@@ -39,6 +39,9 @@ public class BalanceSimpleTest extends LinearOpMode {
 
         imu = new bno055driver("IMU", hardwareMap);
 
+        double Pv = 20;     //pitch value
+        double Rv = 20;     //roll value
+
         double LFpower = 0;
         double RFpower = 0;
         double LBpower = 0;
@@ -53,10 +56,10 @@ public class BalanceSimpleTest extends LinearOpMode {
         while (opModeIsActive()) {
 
 
-            RFpower = ((((-imu.getAngles()[1])/20) + (imu.getAngles()[2]/20)) / 2);
-            RBpower = ((((-imu.getAngles()[1])/20) - (imu.getAngles()[2]/20)) / 2);
-            LFpower = ((((-imu.getAngles()[1])/20) - (imu.getAngles()[2]/20)) / 2);
-            LBpower = ((((-imu.getAngles()[1])/20) + (imu.getAngles()[2]/20)) / 2);
+            RFpower = ((((-imu.getAngles()[1])/Pv) + (imu.getAngles()[2]/Rv)) / 2);
+            RBpower = ((((-imu.getAngles()[1])/Pv) - (imu.getAngles()[2]/Rv)) / 2);
+            LFpower = ((((-imu.getAngles()[1])/Pv) - (imu.getAngles()[2]/Rv)) / 2);
+            LBpower = ((((-imu.getAngles()[1])/Pv) + (imu.getAngles()[2]/Rv)) / 2);
 
             //RIGHT STICK
 
