@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
@@ -33,6 +34,9 @@ public class BalanceSimpleTest extends LinearOpMode {
         LBdrive = hardwareMap.dcMotor.get("LBdrive");
         RBdrive = hardwareMap.dcMotor.get("RBdrive");
 
+        RBdrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        RFdrive.setDirection(DcMotorSimple.Direction.REVERSE);
+
         imu = new bno055driver("IMU", hardwareMap);
 
         double LFpower = 0;
@@ -49,16 +53,12 @@ public class BalanceSimpleTest extends LinearOpMode {
         while (opModeIsActive()) {
 
 
-            RFpower = -(((imu.getAngles()[1]/10) + (imu.getAngles()[2]/10)) / 2);
-            RBpower = -(((imu.getAngles()[1]/10) - (imu.getAngles()[2]/10)) / 2);
-            LFpower = -(((imu.getAngles()[1]/10) - (imu.getAngles()[2]/10)) / 2);
-            LBpower = -(((imu.getAngles()[1]/10) + (imu.getAngles()[2]/10)) / 2);
+            RFpower = ((((-imu.getAngles()[1])/20) + (imu.getAngles()[2]/20)) / 2);
+            RBpower = ((((-imu.getAngles()[1])/20) - (imu.getAngles()[2]/20)) / 2);
+            LFpower = ((((-imu.getAngles()[1])/20) - (imu.getAngles()[2]/20)) / 2);
+            LBpower = ((((-imu.getAngles()[1])/20) + (imu.getAngles()[2]/20)) / 2);
 
             //RIGHT STICK
-            RFpower = RFpower - (imu.getAngles()[0]/10);
-            RBpower = RBpower - (imu.getAngles()[0]/10);
-            LFpower = LFpower + (imu.getAngles()[0]/10);
-            LBpower = LBpower + (imu.getAngles()[0]/10);
 
             Range.clip(RFpower, -1, 1);
             Range.clip(RBpower, -1, 1);
